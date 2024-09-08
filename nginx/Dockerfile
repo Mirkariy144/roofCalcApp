@@ -14,7 +14,9 @@ RUN npm install
 COPY . .
 
 # Открываем порты
-EXPOSE 3000 3001 3306
+EXPOSE 80
+
+EXPOSE 443
 
 # Запускаем команду для запуска сервера разработки
 CMD ["npm", "start"]

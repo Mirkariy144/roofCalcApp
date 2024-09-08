@@ -24,7 +24,7 @@ services:
       PMA_USER: root
       PMA_PASSWORD: root
     ports:
-      - 8080:80
+      - 3080:3080
     restart: always
 
   backend:
@@ -48,6 +48,8 @@ services:
     image: nginx:latest
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./roof_calc_frontend:/app/frontend
+      - ./roof-calc_backend_DB:/app/backend
     ports:
       - "80:80"
     depends_on:
