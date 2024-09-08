@@ -42,6 +42,8 @@ services:
       - "3001:3001"
     links:
       - db
+    volumes:
+      - ./roof-calc_backend_DB:/app
     restart: always
 
   nginx:
@@ -55,13 +57,28 @@ services:
     depends_on:
       - backend
       - frontend
+    restart: always
+    networks:
+      - frontend-networks
+      - backend-networks
 
   frontend:
     build: ./roof_calc_frontend
     ports:
       - "3000:3000"
+    restart: always
+    volumes:
+      - ./roof_calc_frontend:/app
     depends_on:
       - backend
+    networks:
+      - frontend-networks
+
+networks:
+  frontend-networks:
+    driver: bridge
+  backend-networks:
+    driver: bridge
 
 volumes:
   db-data:

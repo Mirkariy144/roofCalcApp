@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { RoofModal } from '../shared/NewRoofModal/RoofModal';
 import { AddNewItemButton } from '../shared/button/AddNewItemButton';
-import s from '../app/appStyles/App.module.css';
+import '../app/appStyles/App.css';
 import { useParams } from 'react-router-dom';
 import { GridRoofTypes } from '../shared/GridItems/GridRoofTypes';
 import { DeleteModal } from '../shared/Modal/DeleteModal';
@@ -192,7 +192,7 @@ export const RoofListContainer = () => {
         openEditJunctionModal={openEditJunctionModal}
         openDeleteJunctionModal={openDeleteJunctionModal}
       />
-      <div className={s.button}>
+      <div className='button'>
         <RoofModal
           Status={openNewItem}
           handler={handleClose}

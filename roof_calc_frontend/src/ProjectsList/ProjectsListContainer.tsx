@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import s from '../app/appStyles/App.module.css';
+import '../app/appStyles/App.css';
 import { GridItems } from '../shared/GridItems/GridItems';
 import { ItemModal } from '../shared/Modal/ItemModal';
 import { AddNewItemButton } from '../shared/button/AddNewItemButton';
@@ -80,7 +80,7 @@ export const ProjectsListContainer = () => {
         editAction={handleClickOpenEditItemModal}
         deleteAction={handleClickOpenDeleteItemModal}
       />
-      <div className={s.button}>
+      <div className='button'>
         <ItemModal
           Status={openNewItem}
           handler={handleCloseNewItemModal}

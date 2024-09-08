@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { GridItems } from '../shared/GridItems/GridItems';
 import { ItemModal } from '../shared/Modal/ItemModal';
 import { AddNewItemButton } from '../shared/button/AddNewItemButton';
-import s from '../app/appStyles/App.module.css';
+import '../app/appStyles/App.css';
 import { useParams } from 'react-router-dom';
 import { DeleteModal } from '../shared/Modal/DeleteModal';
 import {
@@ -86,7 +86,7 @@ export const TheConstructionQueueContainer = () => {
         editAction={handleClickOpenEditItemModal}
         deleteAction={handleClickOpenDeleteItemModal}
       />
-      <div className={s.button}>
+      <div className='button'>
         <ItemModal
           Status={openNewItem}
           handler={handleClose}

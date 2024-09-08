@@ -5,13 +5,10 @@ FROM node:alpine
 WORKDIR /app
 
 # Копируем зависимости
-COPY package*.json ./
+COPY ./ ./
 
 # Устанавливаем зависимости
 RUN npm install
-
-# Копируем приложение
-COPY . .
 
 # Открываем порт
 EXPOSE 3001

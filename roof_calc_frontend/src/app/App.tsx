@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import s from './appStyles/App.module.css';
+import './appStyles/App.css';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { ProjectsListContainer } from '../ProjectsList/ProjectsListContainer';
 import { TheConstructionQueueContainer } from '../TheConstructionQueue/TheConstructionQueue';
@@ -29,7 +29,7 @@ function App() {
   }, [navigate]);
 
   return (
-    <div className={s.appWrapper}>
+    <div className='appWrapper'>
       <Routes>
         <Route path="/" element={<ProjectsListContainer />} />
         <Route path=":projectId" element={<TheConstructionQueueContainer />} />
