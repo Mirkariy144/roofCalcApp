@@ -1,4 +1,4 @@
-FROM node:alpine as backBuilder
+FROM node:alpine as backbuilder
 
 COPY package.json package.json
 RUN npm install
