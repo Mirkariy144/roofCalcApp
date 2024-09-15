@@ -1,17 +1,10 @@
-# Используем официальный образ Node.js
-FROM node:alpine
+FROM node:alpine as backBuilder
 
-# Устанавливаем рабочий каталог
-WORKDIR /app
-
-# Копируем зависимости
-COPY ./ ./
-
-# Устанавливаем зависимости
+COPY package.json package.json
 RUN npm install
 
-# Открываем порт
+COPY . .
+
 EXPOSE 3001
 
-# Запускаем приложение
 CMD ["node", "app.js"]

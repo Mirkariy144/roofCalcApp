@@ -15,6 +15,8 @@ services:
       - db-data:/var/lib/mysql
       - ./roof-calc_backend_DB/src/BD/sql_roof-calc.sql:/docker-entrypoint-initdb.d/sql_roof-calc.sql
     command: --default-authentication-plugin=mysql_native_password
+    networks:
+      - Zog_Zog
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -26,6 +28,10 @@ services:
     ports:
       - 3080:3080
     restart: always
+    depends_on:
+      - db
+    networks:
+      - Zog_Zog
 
   backend:
     build: ./roof-calc_backend_DB
@@ -45,13 +51,13 @@ services:
     volumes:
       - ./roof-calc_backend_DB:/app
     restart: always
+    networks:
+      - Zog_Zog
 
   nginx:
-    image: nginx:latest
+    image: nginx:stable-alpine
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./roof_calc_frontend:/app/frontend
-      - ./roof-calc_backend_DB:/app/backend
+      - ./nginx.conf:/etc/nginx/nginx.conf
     ports:
       - "80:80"
     depends_on:
@@ -59,8 +65,7 @@ services:
       - frontend
     restart: always
     networks:
-      - frontend-networks
-      - backend-networks
+      - Zog_Zog
 
   frontend:
     build: ./roof_calc_frontend
@@ -72,13 +77,10 @@ services:
     depends_on:
       - backend
     networks:
-      - frontend-networks
+      - Zog_Zog
 
 networks:
-  frontend-networks:
-    driver: bridge
-  backend-networks:
-    driver: bridge
+  Zog_Zog:
 
 volumes:
   db-data:
