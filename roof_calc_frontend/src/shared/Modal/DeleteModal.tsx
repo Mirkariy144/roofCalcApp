@@ -9,7 +9,7 @@ import {
 import React from 'react';
 
 interface NewItemModalProps {
-  handler: () => void;
+  handler: () => any;
   Title?: string;
   Text?: string;
   Status: boolean;

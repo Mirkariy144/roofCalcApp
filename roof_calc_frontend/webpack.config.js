@@ -9,7 +9,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.tsx',
+      template: './src/index.html',
       filename: 'index.html',
       inject: 'body',
     }),
@@ -41,7 +41,7 @@ module.exports = {
             }
           }
         ],
-        include: /\.module\.css$/,
+        // include: /\.module\.css$/,
       }
     ],
   },

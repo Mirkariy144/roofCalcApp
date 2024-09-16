@@ -69,8 +69,11 @@ export const RoofModal = ({
             upperPoint,
             lowerPoint,
             roofInfo?.elementId
-          );
-          handler();
+          ).then(
+            function() {
+              handler();
+            }
+          )
         },
       }}
     >

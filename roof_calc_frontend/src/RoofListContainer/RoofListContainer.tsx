@@ -175,8 +175,11 @@ export const RoofListContainer = () => {
   };
 
   const deleteJunction = () => {
-    axiosDeleteJunction(elementId);
-    setOpenDeleteJunctionModal(false);
+    axiosDeleteJunction(elementId).then(
+      function() {
+        setOpenDeleteJunctionModal(false);
+      }
+    );
   };
 
   return (

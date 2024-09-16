@@ -53,8 +53,9 @@ export const ItemModal = ({
           const formData = new FormData(event.currentTarget);
           const formJson = Object.fromEntries((formData as any).entries());
           const text = formJson.text;
-          API(text, projectId, queueId, sectionId);
-          handler();
+          API(text, projectId, queueId, sectionId).then(
+            function() {handler()}
+          )
         },
       }}
     >

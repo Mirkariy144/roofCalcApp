@@ -68,8 +68,9 @@ export const ProjectsListContainer = () => {
   };
 
   const deleteItem = () => {
-    axiosDeleteProject(elementId);
-    setOpenDeleteItemModal(false);
+    axiosDeleteProject(elementId).then(
+      function() {setOpenDeleteItemModal(false);}
+    );
   };
 
   return (
