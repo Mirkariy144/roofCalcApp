@@ -7,7 +7,10 @@ const config = {
   password: 'root',
   database: 'sql_roof-calc',
   port: 3306,
-  authPlugin: 'mysql_native_password'
+  authPlugin: 'mysql_native_password',
+  ssl: {
+    rejectUnauthorized: false
+  }
 };
 
 // const connection = mysql.createConnection({
