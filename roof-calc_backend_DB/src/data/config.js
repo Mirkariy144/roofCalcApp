@@ -2,12 +2,11 @@ const mysql = require('mysql2');
 
 // Set database connection credentials
 const config = {
-  host: 'db',
+  host: '%',
   user: 'kurwasql',
   password: 'kurwasql2',
   database: 'sql_roof-calc',
   port: 3306,
-  authType: 'caching_sha2_password',
   ssl: {
     rejectUnauthorized: false,
   }
