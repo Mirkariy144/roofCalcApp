@@ -7,8 +7,10 @@ const config = {
   password: 'root',
   database: 'sql_roof-calc',
   port: 3306,
-  authPlugin: 'mysql_native_password',
-  rejectUnauthorized: false,
+  authPlugin: 'caching_sha2_password',
+  ssl: {
+    rejectUnauthorized: false,
+  }
 };
 
 // const connection = mysql.createConnection({
@@ -21,7 +23,7 @@ const config = {
 
 const connection = mysql.createConnection(config);
 
-connection.config.authPlugin = 'mysql_native_password';
+connection.config.authPlugin = 'caching_sha2_password';
 
 // Create a MySQL pool
 const pool = mysql.createPool(config);
