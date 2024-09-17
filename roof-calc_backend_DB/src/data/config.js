@@ -2,7 +2,7 @@ const mysql = require('mysql2');
 
 // Set database connection credentials
 const config = {
-  host: 'db',
+  host: '172.18.0.2',
   user: 'root',
   password: 'root',
   database: 'sql_roof-calc',
