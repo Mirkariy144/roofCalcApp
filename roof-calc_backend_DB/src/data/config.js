@@ -7,6 +7,7 @@ const config = {
   password: 'kurwaSSL2',
   database: 'sql_roof-calc',
   port: 3306,
+  authType: 'caching_sha2_password',
   ssl: {
     rejectUnauthorized: false,
   }
@@ -20,9 +21,9 @@ const config = {
 //   port: 3306
 // });
 
-const connection = mysql.createConnection(config);
+// const connection = mysql.createConnection(config);
 
-connection.config.authType = 'caching_sha2_password';
+// connection.config.authType = 'caching_sha2_password';
 
 // Create a MySQL pool
 const pool = mysql.createPool(config);
