@@ -5,7 +5,7 @@ const instance = axios.create({
   // headers: {
   //   Authorization: localStorage.getItem('token'),
   // },
-  baseURL: 'http://api.mirkariy-roofcalc.online',
+  baseURL: 'https://api.mirkariy-roofcalc.online',
 });
 
 // API к юзерам (логинизация и регистрация пользователей)
