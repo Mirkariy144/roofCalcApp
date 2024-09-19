@@ -17,9 +17,9 @@ services:
       - '../../etc/letsencrypt:/etc/letsencrypt'
     command: 
       --default-authentication-plugin=mysql_native_password
-      --ssl-ca=/etc/letsencrypt/live/mirkariy-roofcalc.online/fullchain.pem
-      --ssl-cert=/etc/letsencrypt/live/mirkariy-roofcalc.online/cert.pem
-      --ssl-key=/etc/letsencrypt/live/mirkariy-roofcalc.online/privkey.pem
+      # --ssl-ca=/etc/letsencrypt/live/mirkariy-roofcalc.online/fullchain.pem
+      # --ssl-cert=/etc/letsencrypt/live/mirkariy-roofcalc.online/cert.pem
+      # --ssl-key=/etc/letsencrypt/live/mirkariy-roofcalc.online/privkey.pem
     networks:
       - zog_zog
 

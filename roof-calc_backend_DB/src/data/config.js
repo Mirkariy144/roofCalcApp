@@ -9,9 +9,10 @@ const config = {
   database: 'sql_roof-calc',
   port: 3306,
   ssl: {
-    ca: fs.readFileSync('/etc/letsencrypt/live/mirkariy-roofcalc.online/fullchain.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/mirkariy-roofcalc.online/cert.pem'),
-    key: fs.readFileSync('/etc/letsencrypt/live/mirkariy-roofcalc.online/privkey.pem'),
+    // ca: fs.readFileSync('/etc/letsencrypt/live/mirkariy-roofcalc.online/fullchain.pem'),
+    // cert: fs.readFileSync('/etc/letsencrypt/live/mirkariy-roofcalc.online/cert.pem'),
+    // key: fs.readFileSync('/etc/letsencrypt/live/mirkariy-roofcalc.online/privkey.pem'),
+    checkServerIdentity: false
   }
 };
 
