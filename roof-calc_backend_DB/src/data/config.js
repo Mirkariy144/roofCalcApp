@@ -23,11 +23,11 @@ const config = {
 //   port: 3306
 // });
 
-const pool = mysql.createConnection(config);
+// const pool = mysql.createConnection(config);
 
 // connection.config.authPlugin = 'mysql_native_password';
 
 // Create a MySQL pool
-// const pool = mysql.createPool(config);
+const pool = mysql.createPool(config);
 
 module.exports = pool;
