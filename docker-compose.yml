@@ -16,7 +16,11 @@ services:
       - ./roof-calc_backend_DB/src/BD/sql_roof-calc.sql:/docker-entrypoint-initdb.d/sql_roof-calc.sql
       - '../../etc/letsencrypt:/etc/letsencrypt'
     command: 
-      --default-authentication-plugin=mysql_native_password --skip-ssl
+      --default-authentication-plugin=mysql_native_password
+      --ssl-mode=REQUIRED
+      --ssl-ca=/etc/letsencrypt/live/mirkariy-roofcalc.online/fullchain.pem
+      --ssl-cert=/etc/letsencrypt/live/mirkariy-roofcalc.online/fullchain.pem
+      --ssl-key=/etc/letsencrypt/live/mirkariy-roofcalc.online/privkey.pem
     networks:
       - zog_zog
 
