@@ -9,6 +9,7 @@ services:
       MYSQL_DATABASE: sql_roof-calc
       MYSQL_USER: kurwa
       MYSQL_PASSWORD: root
+
     ports:
       - "3306:3306"
     volumes:
@@ -49,6 +50,9 @@ services:
       DB_USER: root
       DB_PASSWORD: root
       DB_NAME: sql_roof-calc
+      MYSQL_SSL_CERT: /etc/letsencrypt/live/mirkariy-roofcalc.online/cert.pem
+      MYSQL_SSL_KEY: /etc/letsencrypt/live/mirkariy-roofcalc.online/privkey.pem
+      MYSQL_SSL_CA: /etc/letsencrypt/live/mirkariy-roofcalc.online/fullchain.pem
     ports:
       - "3001:3001"
     links:
