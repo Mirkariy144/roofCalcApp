@@ -1,4 +1,5 @@
 const mysql = require('mysql');
+const fs = require('fs');
 
 // Set database connection credentials
 const config = {
