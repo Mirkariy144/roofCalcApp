@@ -12,7 +12,7 @@ const config = {
     ca: fs.readFileSync('/etc/letsencrypt/live/mirkariy-roofcalc.online/fullchain.pem'),
     cert: fs.readFileSync('/etc/letsencrypt/live/mirkariy-roofcalc.online/cert.pem'),
     key: fs.readFileSync('/etc/letsencrypt/live/mirkariy-roofcalc.online/privkey.pem'),
-    checkServerIdentity: false
+    rejectUnauthorized: true
   }
 };
 
