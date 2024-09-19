@@ -12,7 +12,7 @@ const allowedOrigins = ['http://localhost:3000', 'http://87.228.8.13', 'mirkariy
 
 app.use(cors(
   {
-    origin: 'https://api.mirkariy-roofcalc.online',
+    origin: 'https://mirkariy-roofcalc.online',
     credentials: true
   }
 ));
