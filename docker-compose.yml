@@ -50,6 +50,7 @@ services:
       - db
     volumes:
       - ./roof-calc_backend_DB:/app
+      - '../../etc/letsencrypt:/etc/letsencrypt'
     restart: always
     networks:
       - zog_zog
