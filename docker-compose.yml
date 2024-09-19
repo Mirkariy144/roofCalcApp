@@ -17,7 +17,7 @@ services:
       - ./roof-calc_backend_DB/src/BD/sql_roof-calc.sql:/docker-entrypoint-initdb.d/sql_roof-calc.sql
       - '../../etc/letsencrypt:/etc/letsencrypt'
     command: 
-      --default-authentication-plugin=mysql_native_password
+      mysqld --default-authentication-plugin=mysql_native_password --skip-ssl
     networks:
       - zog_zog
 
