@@ -21,7 +21,6 @@ services:
       --ssl-ca=/etc/letsencrypt/live/mirkariy-roofcalc.online/fullchain.pem
       --ssl-cert=/etc/letsencrypt/live/mirkariy-roofcalc.online/cert.pem
       --ssl-key=/etc/letsencrypt/live/mirkariy-roofcalc.online/privkey.pem
-      --require_secure_transport = ON
     networks:
       - zog_zog
 
