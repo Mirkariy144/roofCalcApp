@@ -20,7 +20,6 @@ services:
       --ssl-ca=/etc/letsencrypt/live/mirkariy-roofcalc.online/fullchain.pem
       --ssl-cert=/etc/letsencrypt/live/mirkariy-roofcalc.online/cert.pem
       --ssl-key=/etc/letsencrypt/live/mirkariy-roofcalc.online/privkey.pem
-      --ssl-mode=REQUIRED
     networks:
       - zog_zog
 
