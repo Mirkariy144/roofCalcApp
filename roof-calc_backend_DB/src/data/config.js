@@ -14,7 +14,6 @@ const config = {
     key: fs.readFileSync('/etc/letsencrypt/live/mirkariy-roofcalc.online/privkey.pem'),
     rejectUnauthorized: true
   },
-  sslmode: 'require'
 };
 
 // const connection = mysql.createConnection({
