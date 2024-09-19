@@ -9,6 +9,7 @@ services:
       MYSQL_DATABASE: sql_roof-calc
       MYSQL_USER: kurwa
       MYSQL_PASSWORD: root
+      MYSQL_SSL_MODE: DISABLED
     ports:
       - "3306:3306"
     volumes:
@@ -17,9 +18,6 @@ services:
       - '../../etc/letsencrypt:/etc/letsencrypt'
     command: 
       --default-authentication-plugin=mysql_native_password
-      --ssl-ca=/etc/letsencrypt/live/mirkariy-roofcalc.online/fullchain.pem
-      --ssl-cert=/etc/letsencrypt/live/mirkariy-roofcalc.online/fullchain.pem
-      --ssl-key=/etc/letsencrypt/live/mirkariy-roofcalc.online/privkey.pem
     networks:
       - zog_zog
 

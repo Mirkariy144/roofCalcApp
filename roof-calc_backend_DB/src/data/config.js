@@ -9,11 +9,11 @@ const config = {
   database: 'sql_roof-calc',
   port: 3306,
   authPlugin: 'mysql_native_password',
-  ssl: {
-    ca: fs.readFileSync('/etc/letsencrypt/live/mirkariy-roofcalc.online/fullchain.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/mirkariy-roofcalc.online/fullchain.pem'),
-    key: fs.readFileSync('/etc/letsencrypt/live/mirkariy-roofcalc.online/privkey.pem')
-  }
+  // ssl: {
+  //   ca: fs.readFileSync('/etc/letsencrypt/live/mirkariy-roofcalc.online/fullchain.pem'),
+  //   cert: fs.readFileSync('/etc/letsencrypt/live/mirkariy-roofcalc.online/fullchain.pem'),
+  //   key: fs.readFileSync('/etc/letsencrypt/live/mirkariy-roofcalc.online/privkey.pem')
+  // }
 };
 
 // const connection = mysql.createConnection({
