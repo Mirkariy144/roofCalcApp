@@ -100,10 +100,14 @@ export const EditJunctionModal = ({
             delete item.uniqueId;
             return item;
           });
-          axiosEditJunction(name, junctionLength, data, elementId);
-          handleClose();
-          clearLine();
-          clearJunctionLayers();
+          axiosEditJunction(name, junctionLength, data, elementId).then(
+            function () {
+              handleClose();
+              clearLine();
+              clearJunctionLayers();
+            }
+          )
+
         },
       }}
     >

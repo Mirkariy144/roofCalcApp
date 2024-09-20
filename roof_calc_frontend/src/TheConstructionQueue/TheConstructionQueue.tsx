@@ -75,8 +75,10 @@ export const TheConstructionQueueContainer = () => {
   };
 
   const deleteItem = () => {
-    axiosDeleteQueue(elementId);
-    setOpenDeleteItemModal(false);
+    axiosDeleteQueue(elementId).then(function() {
+      setOpenDeleteItemModal(false);
+    })
+    
   };
 
   return (

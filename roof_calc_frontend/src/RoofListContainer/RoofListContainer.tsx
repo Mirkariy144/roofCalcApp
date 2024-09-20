@@ -158,15 +158,10 @@ export const RoofListContainer = () => {
     setEditingJunction(junction);
   };
 
-  const handleCloseEditJunctionModal = (
-    func1: () => void = () => {},
-    func2: () => void = () => {}
-  ) => {
+  const handleCloseEditJunctionModal = () => {
     setOpenEditJunctionModal(false);
     setEditingJunction(null);
     setElementId(0);
-    func1();
-    func2();
   };
 
   const toggleDeleteJunctionModal = (junctionId?: number) => {

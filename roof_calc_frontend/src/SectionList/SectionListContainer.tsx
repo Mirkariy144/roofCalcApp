@@ -81,8 +81,10 @@ export const SectionsListContainer = () => {
   };
 
   const deleteItem = () => {
-    axiosDeleteSection(elementId);
-    setOpenDeleteItemModal(false);
+    axiosDeleteSection(elementId).then(function() {
+      setOpenDeleteItemModal(false);
+    })
+    
   };
 
   return (
