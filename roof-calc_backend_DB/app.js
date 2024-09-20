@@ -8,11 +8,11 @@ const cors = require('cors');
 const port = 3001;
 const app = express();
 
-const allowedOrigins = ['http://localhost:3000', 'http://87.228.8.13', 'mirkariy-roofcalc.online']
+const allowedOrigins = ['http://localhost:3000', 'http://87.228.8.13', 'https://mirkariy-roofcalc.online']
 
 app.use(cors(
   {
-    origin: 'https://mirkariy-roofcalc.online',
+    origin: allowedOrigins,
     credentials: true
   }
 ));
