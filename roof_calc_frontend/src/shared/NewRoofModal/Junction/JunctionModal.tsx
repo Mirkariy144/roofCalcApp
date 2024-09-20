@@ -81,10 +81,14 @@ export const JunctionModal = ({
             delete item.uniqueId;
             return item;
           });
-          axiosAddJunction(name, junctionLength, data, elementId);
-          handler();
-          clearLine();
-          clearJunctionLayers();
+          axiosAddJunction(name, junctionLength, data, elementId).then(
+            function () {
+              handler();
+              clearLine();
+              clearJunctionLayers();
+            }
+          )
+
         },
       }}
     >
