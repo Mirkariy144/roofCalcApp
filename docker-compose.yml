@@ -30,6 +30,8 @@ services:
       PMA_PASSWORD: root
     ports:
       - 3080:3080
+    volumes:
+      - '../../etc/letsencrypt:/etc/letsencrypt'
     restart: always
     depends_on:
       - db
