@@ -4,8 +4,8 @@ const fs = require('fs');
 // Set database connection credentials
 const config = {
   host: 'db',
-  user: 'kurwa',
-  password: 'kurwa',
+  user: 'root',
+  password: 'root',
   database: 'sql_roof-calc',
   port: 3306,
 };
