@@ -132,8 +132,10 @@ export const RoofListContainer = () => {
   };
 
   const deleteItem = () => {
-    axiosDeleteRoofType(elementId);
-    setOpenDeleteRoofTypeModal(false);
+    axiosDeleteRoofType(elementId).then(function() {
+      setOpenDeleteRoofTypeModal(false);
+    })
+    
   };
 
   const toggleNewJunctionModal = (elementId?: number) => {
