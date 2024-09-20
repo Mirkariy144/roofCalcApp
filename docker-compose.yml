@@ -26,8 +26,8 @@ services:
     environment:
       PMA_ARBITRARY: '1'
       PMA_HOSTS: db
-      PMA_USER: kurwa
-      PMA_PASSWORD: kurwa
+      PMA_USER: root
+      PMA_PASSWORD: root
     ports:
       - 3080:3080
     volumes:
@@ -58,20 +58,20 @@ services:
     networks:
       - zog_zog
 
-  nginx:
-    image: nginx:stable-alpine
-    volumes:
-      - './nginx.conf:/etc/nginx/nginx.conf'
-      - '../../etc/letsencrypt:/etc/letsencrypt'
-    ports:
-      - "80:80"
-      - "443:443"
-    depends_on:
-      - backend
-      - frontend
-    restart: always
-    networks:
-      - zog_zog
+  # nginx:
+  #   image: nginx:stable-alpine
+  #   volumes:
+  #     - './nginx.conf:/etc/nginx/nginx.conf'
+  #     - '../../etc/letsencrypt:/etc/letsencrypt'
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   depends_on:
+  #     - backend
+  #     - frontend
+  #   restart: always
+  #   networks:
+  #     - zog_zog
 
   frontend:
     build: ./roof_calc_frontend
