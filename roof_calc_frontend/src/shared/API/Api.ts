@@ -5,7 +5,7 @@ const instance = axios.create({
   // headers: {
   //   Authorization: localStorage.getItem('token'),
   // },
-  baseURL: 'http://87.228.8.13/api',
+  baseURL: 'http://87.228.8.23/api',
 });
 
 // API к юзерам (логинизация и регистрация пользователей)

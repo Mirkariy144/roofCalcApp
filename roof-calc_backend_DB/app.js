@@ -8,7 +8,7 @@ const cors = require('cors');
 const port = 3001;
 const app = express();
 
-const allowedOrigins = ['http://localhost:3000', 'http://87.228.8.13']
+const allowedOrigins = ['http://localhost:3000', 'http://87.228.8.23']
 
 app.use(cors(
   {
