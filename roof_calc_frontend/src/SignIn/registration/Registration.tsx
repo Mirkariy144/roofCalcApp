@@ -40,6 +40,7 @@ export const Registration = () => {
 
   const regFunc = () => {
     axiosRegistration(email, login, password).then((response) => {
+      console.log(response);
       setRegError(response.data);
     })
   }
