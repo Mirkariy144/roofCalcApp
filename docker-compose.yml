@@ -24,10 +24,8 @@ services:
       PMA_ARBITRARY: '1'
       PMA_HOSTS: db
       PMA_PORT: 3306
-      PMA_USER: root
-      PMA_PASSWORD: root
     ports:
-      - 3080:3080
+      - 3080:80
     restart: always
     depends_on:
       - db
