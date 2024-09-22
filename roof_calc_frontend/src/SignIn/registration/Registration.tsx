@@ -27,6 +27,8 @@ export const Registration = () => {
     }
   };
 
+  console.log(regError)
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.id === 'email') {
       setEmail(event.target.value);
