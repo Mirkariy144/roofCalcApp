@@ -14,6 +14,7 @@ export const Registration = () => {
   const [emailError, setEmailError] = useState<boolean>(false);
   const [login, setLogin] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [regError, setRegError] = useState<string>('');
 
   console.log(emailError);
 
@@ -36,6 +37,12 @@ export const Registration = () => {
       setPassword(event.target.value);
     }
   };
+
+  const regFunc = () => {
+    axiosRegistration(email, login, password).then((response) => {
+      setRegError(response.data);
+    })
+  }
 
   return (
     <Card
@@ -62,7 +69,7 @@ export const Registration = () => {
           onChange={handleChange}
           sx={{ marginBottom: '10px' }}
           error={email ? !emailError : false}
-          helperText={emailError ? ' ' : 'Некорректный email'}
+          helperText={emailError ? regError ? 'Email занят' : ' ' : 'Некорректный email'}
         />
         <TextField
           required
@@ -72,6 +79,7 @@ export const Registration = () => {
           onChange={handleChange}
           label="Введите ваш логин"
           sx={{ marginBottom: '10px' }}
+          helperText={regError ? 'Логин занят' : ' '}
         />
         <TextField
           required
@@ -87,7 +95,7 @@ export const Registration = () => {
         <Button
           variant="outlined"
           disabled={!emailError || !login || !password}
-          onClick={() => axiosRegistration(email, login, password)}
+          onClick={regFunc}
         >
           Зарегистрироваться
         </Button>
