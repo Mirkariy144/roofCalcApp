@@ -23,6 +23,7 @@ services:
     environment:
       PMA_ARBITRARY: '1'
       PMA_HOSTS: db
+      PMA_PORT: 3306
       PMA_USER: root
       PMA_PASSWORD: root
     ports:
@@ -46,8 +47,6 @@ services:
       DB_NAME: sql_roof-calc
     ports:
       - "3001:3001"
-    links:
-      - db
     volumes:
       - ./roof-calc_backend_DB:/app
     restart: always
