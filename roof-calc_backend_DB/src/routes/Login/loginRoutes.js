@@ -3,12 +3,35 @@ const jwt = require('jsonwebtoken');
 
 const loginRoutes = (app) => {
   app.post('/registration', (request, response) => {
-    pool.query('INSERT INTO users SET ?', request.body, (error, result) => {
-      const userId = result.insertId;
-      if (error) throw error;
-      response.status(201).send(`User added with ID: ${userId}`);
-      return;
-    });
+    pool.query(
+      'SELECT * FROM users WHERE email = ?', [request.body.email],
+      (error, result) => {
+        if (result.length > 0) {
+          response.status(409).send('Email already exists');
+          return;
+        } else {
+          pool.query(
+            'SELECT * FROM users WHERE login = ?', [request.body.login],
+            (error, result) => {
+              if (result.length > 0) {
+                response.status(409).send('Login already exists');
+                return;
+              } else {
+                pool.query('INSERT INTO users SET ?', request.body, (error, result) => {
+                  const userId = result.insertId;
+                  if (error) throw error;
+                  response.status(201).send(`User added with ID: ${userId}`);
+                  return;
+                });
+              }
+              if (error) throw error;
+            }
+          )
+        }
+        if (error) throw error;
+      }
+    )
+
   });
 
   // Аутентификация юзеров
