@@ -1,14 +1,19 @@
+env_file:
+  - .env
+
 services:
   db:
     image: mysql:8.0
     cap_add:
       - SYS_NICE
     restart: always
+    env_file:
+      - .env
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: sql_roof-calc
-      MYSQL_USER: kurwa
-      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
     ports:
       - "3306:3306"
     volumes:
@@ -23,8 +28,8 @@ services:
     environment:
       VIRTUAL_HOST: phpmyadmin.local
       PMA_ARBITRARY: '1'
-      PMA_HOSTS: db
-      PMA_PORT: 3306
+      PMA_HOSTS: ${DB_HOST}
+      PMA_PORT: ${DB_PORT}
     ports:
       - 3080:80
     restart: always
@@ -37,13 +42,15 @@ services:
     build: ./roof-calc_backend_DB
     depends_on:
       - db
+    env_file:
+      - .env
     environment:
       NODE_ENV: production
-      DB_HOST: db
-      DB_PORT: 3306
-      DB_USER: root
-      DB_PASSWORD: root
-      DB_NAME: sql_roof-calc
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
     ports:
       - "3001:3001"
     volumes:

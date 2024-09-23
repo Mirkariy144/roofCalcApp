@@ -12,7 +12,7 @@ const allowedOrigins = ['http://localhost:3000', 'http://87.228.8.23', 'https://
 
 app.use(cors(
   {
-    origin: allowedOrigins,
+    origin: 'https://mirkariy-roofcalc.online',
     credentials: true
   }
 ));
@@ -33,7 +33,7 @@ app.use((req, res, next) => {
       res.status(401).send('Unauthorized')
       return
     }
-    const decoded =  jwt.verify(token, 'Пошёл ты на хуй мусор, я драм энд бэйс продюссер')
+    const decoded =  jwt.verify(token, process.env.TOKEN_KEY)
     if (!decoded) {
       res.status(401).send('Invalid token');
       return
