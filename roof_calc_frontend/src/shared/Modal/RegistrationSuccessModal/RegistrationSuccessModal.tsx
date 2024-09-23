@@ -18,6 +18,7 @@ export const RegistrationSuccessModal = ({
   setDialogOpen: Dispatch<SetStateAction<boolean>>;
 }) => {
   const handleBoolian = () => {
+    console.log('handleBoolian');
     setDialogOpen(false);
     handleSwitch(false);
   };

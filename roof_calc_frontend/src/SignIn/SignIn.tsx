@@ -5,7 +5,6 @@ import { Stack, Switch, Typography } from '@mui/material';
 
 export const SignIn = () => {
   const [handleSwitch, setHandleSwitch] = useState(false);
-  useEffect(() => {}, [handleSwitch]);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setHandleSwitch(event.target.checked);
   };

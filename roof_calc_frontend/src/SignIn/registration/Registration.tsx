@@ -48,7 +48,6 @@ export const Registration = ({
   const registration = async () => {
     try {
       const response = await axiosRegistration(email, login, password);
-      console.log(response);
       if (response.status === 201) {
         setDialogOpen(true);
       }
