@@ -45,7 +45,7 @@ const loginRoutes = (app) => {
         if (result.length > 0) {
           const token = jwt.sign(
             { userId: result[0].userId },
-            'Пошёл ты на хуй мусор, я драм энд бэйс продюссер',
+            process.env.TOKEN_KEY,
             { expiresIn: '1h' },
           );
           // response.json({ token });
