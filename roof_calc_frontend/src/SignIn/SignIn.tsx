@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Login } from './login/Login';
 import { Registration } from './registration/Registration';
 import { Stack, Switch, Typography } from '@mui/material';
 
 export const SignIn = () => {
   const [handleSwitch, setHandleSwitch] = useState(false);
+  useEffect(() => {}, [handleSwitch]);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setHandleSwitch(event.target.checked);
   };
@@ -20,7 +21,11 @@ export const SignIn = () => {
         <Switch id="loginSwitcher" onChange={handleChange} />
         <Typography>Регистрация</Typography>
       </Stack>
-      {handleSwitch ? <Registration /> : <Login />}
+      {handleSwitch ? (
+        <Registration handleSwitch={setHandleSwitch} />
+      ) : (
+        <Login />
+      )}
     </>
   );
 };
