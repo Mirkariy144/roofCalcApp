@@ -6,17 +6,24 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-import React, { useState } from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 import { axiosRegistration } from '../../shared/API/Api';
+import { AxiosError } from 'axios';
+import { RegistrationSuccessModal } from '../../shared/Modal/RegistrationSuccessModal/RegistrationSuccessModal';
 
-export const Registration = () => {
+export const Registration = ({
+  handleSwitch,
+}: {
+  handleSwitch: Dispatch<SetStateAction<boolean>>;
+}) => {
   const [email, setEmail] = useState<string>('');
   const [emailError, setEmailError] = useState<boolean>(false);
   const [login, setLogin] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [regError, setRegError] = useState<string>('');
+  const [responseErrorData, setResponseErrorData] = useState<any>('');
+  const [dialogOpen, setDialogOpen] = useState<boolean>(false);
 
-  console.log(emailError);
+  console.log(responseErrorData);
 
   const validateEmail = (text: string) => {
     const re = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
@@ -26,8 +33,6 @@ export const Registration = () => {
       setEmailError(false);
     }
   };
-
-  console.log(regError)
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.id === 'email') {
@@ -40,12 +45,19 @@ export const Registration = () => {
     }
   };
 
-  const regFunc = () => {
-    axiosRegistration(email, login, password).then((response) => {
+  const registration = async () => {
+    try {
+      const response = await axiosRegistration(email, login, password);
       console.log(response);
-      setRegError(response.data);
-    })
-  }
+      if (response.status === 201) {
+        setDialogOpen(true);
+      }
+    } catch (error) {
+      const errorAsAxiosError = error as AxiosError;
+      setResponseErrorData(errorAsAxiosError.response?.data);
+      console.error(error);
+    }
+  };
 
   return (
     <Card
@@ -72,7 +84,13 @@ export const Registration = () => {
           onChange={handleChange}
           sx={{ marginBottom: '10px' }}
           error={email ? !emailError : false}
-          helperText={emailError ? regError ? 'Email занят' : ' ' : 'Некорректный email'}
+          helperText={
+            emailError
+              ? responseErrorData === 'Email already exists'
+                ? 'Данный Email уже зарегистрирован'
+                : ''
+              : 'Некорректный email'
+          }
         />
         <TextField
           required
@@ -82,7 +100,11 @@ export const Registration = () => {
           onChange={handleChange}
           label="Введите ваш логин"
           sx={{ marginBottom: '10px' }}
-          helperText={regError ? 'Логин занят' : ' '}
+          helperText={
+            responseErrorData === 'Login already exists'
+              ? 'Данный логин уже зарегистрирован'
+              : ''
+          }
         />
         <TextField
           required
@@ -98,11 +120,16 @@ export const Registration = () => {
         <Button
           variant="outlined"
           disabled={!emailError || !login || !password}
-          onClick={regFunc}
+          onClick={registration}
         >
           Зарегистрироваться
         </Button>
       </CardActions>
+      <RegistrationSuccessModal
+        status={dialogOpen}
+        handleSwitch={handleSwitch}
+        setDialogOpen={setDialogOpen}
+      />
     </Card>
   );
 };
